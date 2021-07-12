@@ -1,27 +1,28 @@
-import React from 'react'
-import './product.css';
+import React from "react";
+import "./Product.css";
 
-function product() {
-    return (
-        <div className="product">
-            <div className="product_info"> 
-                <p> The Lean Startup </p>
-                <p className='product_price'>
-                    <small>Rs.</small>
-                    <strong>99</strong>
-                </p>
-                <div className='product_rating'>
-                    <p>⭐</p>
-                    <p>⭐</p>
-                    <p>⭐</p>
-
-                </div>
-                
-            </div>
-            
-
+function product({id,title,image,price,rating}) {
+  return (
+    <div className="product">
+      <div className="product_info">
+        <p> {title} </p>
+        <p className="product_price">
+          <small>Rs.</small>
+          <strong>{price}</strong>
+        </p>
+        <div className="product_rating">
+            {Array(rating).fill().map((_, i)=>(  <p>⭐</p>))}
+        
         </div>
-    )
+      </div>
+      <img
+        src={image}
+        alt=""
+      />
+
+      <button>Add to Basket</button>
+    </div>
+  );
 }
 
-export default product
+export default product;
